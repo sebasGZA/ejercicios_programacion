@@ -34,8 +34,7 @@ class Group {
             this.matches.push(match)
         } else {
             const existMatch = this.matches.find(m =>
-                (m.team1 == match.team1 && m.team2 == match.team2)
-                ||
+                (m.team1 == match.team1 && m.team2 == match.team2) ||
                 (m.team1 == match.team2 && m.team2 == match.team1)
             )
 
@@ -50,20 +49,20 @@ class Group {
     result() {
         for (let j = 0; j < this.matches.length; j++) {
             if (this.matches[j].score1 > this.matches[j].score2) {
-                //win
+                //won
                 this.ruler(
                     this.matches[j].team1,
                     this.matches[j].score1,
                     this.matches[j].score2,
-                    'win'
+                    'won'
                 )
 
-                //lose
+                //lost
                 this.ruler(
                     this.matches[j].team2,
                     this.matches[j].score2,
                     this.matches[j].score1,
-                    'lose'
+                    'lost'
                 )
 
             } else if (this.matches[j].score1 === this.matches[j].score2) {
@@ -83,20 +82,20 @@ class Group {
                     'draw'
                 )
             } else {
-                //lose
+                //lost
                 this.ruler(
                     this.matches[j].team1,
                     this.matches[j].score1,
                     this.matches[j].score2,
-                    'lose'
+                    'lost'
                 )
 
-                //win
+                //won
                 this.ruler(
                     this.matches[j].team2,
                     this.matches[j].score2,
                     this.matches[j].score1,
-                    'win'
+                    'won'
                 )
             }
         }
@@ -107,13 +106,13 @@ class Group {
     ruler(team, myScore, score2, type) {
         const index = this.newTable.findIndex(t => t.team === team)
         switch (type) {
-            case 'win':
+            case 'won':
                 if (index == -1) {
                     this.newTable.push({
                         team: team,
-                        win: 1,
+                        won: 1,
                         draw: 0,
-                        lose: 0,
+                        lost: 0,
                         GF: myScore,
                         GC: score2,
                         GD: myScore - score2,
@@ -123,7 +122,7 @@ class Group {
                     const oldData = this.newTable[index]
                     const newData = {
                         ...oldData,
-                        win: oldData.win + 1,
+                        won: oldData.won + 1,
                         GF: oldData.GF + myScore,
                         GC: oldData.GC + score2,
                         GD: (oldData.GF + myScore) - (oldData.GC + score2),
@@ -136,9 +135,9 @@ class Group {
                 if (index == -1) {
                     this.newTable.push({
                         team: team,
-                        win: 0,
+                        won: 0,
                         draw: 1,
-                        lose: 0,
+                        lost: 0,
                         GF: myScore,
                         GC: score2,
                         GD: myScore - score2,
@@ -159,14 +158,14 @@ class Group {
                 }
                 break;
 
-            case 'lose':
+            case 'lost':
 
                 if (index == -1) {
                     this.newTable.push({
                         team: team,
-                        win: 0,
+                        won: 0,
                         draw: 0,
-                        lose: 1,
+                        lost: 1,
                         GF: myScore,
                         GC: score2,
                         GD: myScore - score2,
@@ -176,7 +175,7 @@ class Group {
                     const oldData = this.newTable[index]
                     const newData = {
                         ...oldData,
-                        lose: oldData.lose + 1,
+                        lost: oldData.lost + 1,
                         GF: oldData.GF + myScore,
                         GC: oldData.GC + score2,
                         GD: (oldData.GF + myScore) - (oldData.GC + score2),

@@ -1,7 +1,5 @@
 const express = require('express')
-const { sort_csv } = require('../methods/sort_csv')
-const Group = require('./group')
-
+const { sort_csv, group } = require('../methods/EXERCISES')
 class Server {
 
     constructor() {
@@ -14,7 +12,7 @@ class Server {
         setTimeout(() => {
             //EXERCISE2
             const teams = ['Liverpool', 'MU', 'MC', 'Chelsea']
-            this.group(teams)
+            group(teams)
         }, 1000);
         
         //PART2
@@ -26,24 +24,7 @@ class Server {
         })
     }
 
-    group(arrTeam) {
-        if (!arrTeam || arrTeam.length !== 4) {
-            return console.log('Debe de ingresar 4 equipos')
-        }
 
-        const group = new Group(arrTeam)
-
-        for (let i = 0; i < arrTeam.length; i++) {
-            for (let j = 0; j < arrTeam.length; j++) {
-                if (arrTeam[i] !== arrTeam[j]) {
-                    const score1 = Math.round(Math.random() * 10)
-                    const score2 = Math.round(Math.random() * 10)
-                    group.match(arrTeam[i], score1, arrTeam[j], score2)
-                }
-            }
-        }
-        group.result()
-    }
 
 }
 
