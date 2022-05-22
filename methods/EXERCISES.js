@@ -36,7 +36,7 @@ const sort_csv = (filePath, column) => {
 //EXERCISE 2
 const group = (arrTeam) => {
     if (!arrTeam || arrTeam.length !== 4) {
-        return console.log('Debe de ingresar 4 equipos')
+        return console.log('You must enter 4 teams')
     }
 
     const group = new Group(arrTeam)
@@ -54,9 +54,36 @@ const group = (arrTeam) => {
 }
 
 //EXERCISE 3
+const arrayOrdered = (arrData) => {
+    const list = arrData.reduce((accArr, valor) => {
+        if (accArr.indexOf(valor) < 0) {
+            accArr.push(valor);
+        }
+        return accArr;
+    }, []);
+
+    const ordered = list.sort((a, b) => {
+        if (a < b) {
+            return -1
+        } else {
+            return 1
+        }
+    })
+
+    console.log('=========================')
+    console.log('EXERCISE 3')
+    console.log('=========================')
+    console.log(ordered)
+    console.log('=========================')
+}
+
+//EXERCISE 4
+
+
 
 module.exports = {
     sort_csv,
     group,
+    arrayOrdered
 
 }

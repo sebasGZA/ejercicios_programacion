@@ -1,5 +1,5 @@
 const express = require('express')
-const { sort_csv, group } = require('../methods/EXERCISES')
+const { sort_csv, group, arrayOrdered } = require('../methods/EXERCISES')
 class Server {
 
     constructor() {
@@ -14,8 +14,14 @@ class Server {
             const teams = ['Liverpool', 'MU', 'MC', 'Chelsea']
             group(teams)
         }, 1000);
-        
+
         //PART2
+        //EXERCISE 3
+        setTimeout(() => {
+            let infoIn = [1, 2, 10, 3, 4, 9, 5, 6, 8, 7, 8, 9, 10]
+            arrayOrdered(infoIn)
+        }, 1000)
+
     }
 
     listen() {
