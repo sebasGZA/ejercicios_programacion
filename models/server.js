@@ -1,5 +1,10 @@
 const express = require('express')
-const { sort_csv, group, arrayOrdered, periodicNumber } = require('../methods/EXERCISES')
+const { sort_csv,
+    group,
+    arrayOrdered,
+    periodicNumber,
+    areaOut
+} = require('../methods/EXERCISES')
 class Server {
 
     constructor() {
@@ -26,6 +31,11 @@ class Server {
         setTimeout(() => {
             const input = 680
             periodicNumber(input)
+        }, 1000)
+
+        //EXERCISE 5
+        setTimeout(() => {
+            areaOut(0, 0, 10, 10, 20, 20, 30, 30)
         }, 1000)
 
     }
