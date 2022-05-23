@@ -149,10 +149,67 @@ const areaOut = (x1, y1, x2, y2, x3, y3, x4, y4) => {
     console.log('overlapArea: ', overlapArea)
 }
 
+//EXERCISE 6
+const superPrimeNumber = (number) => {
+    let count = 2
+    let superPrimerCount = 0
+    while (count <= number) {
+        let numberString = count.toString()
+        let arrNumberLength = numberString.length
+        if (!isPrime(count)) {
+            count++
+            continue
+        }
+
+        if (arrNumberLength <= 1) {
+            superPrimerCount++
+            count++
+            continue
+        }
+
+        if (isSuperPrime(numberString, arrNumberLength)) {
+            superPrimerCount++
+        }
+
+        count++
+    }
+
+    console.log('=========================')
+    console.log('EXERCISE 6')
+    console.log('=========================')
+    console.log('Total:', superPrimerCount)
+}
+
+const isSuperPrime = (numberString, arrNumberLength) => {
+    for (let i = 0; i < arrNumberLength; i++) {
+        const lastOne = numberString[numberString.length - 1]
+        numberString = numberString.substring(0, numberString.length - 1)
+        numberString = lastOne + numberString
+        const newNumer = parseInt(numberString)
+        if (!isPrime(newNumer)) {
+            return false
+        }
+
+    }
+
+    return true
+}
+
+const isPrime = (number) => {
+    if (number == 4) return false
+    for (let x = 2; x < number / 2; x++) {
+        if (number % x == 0) {
+            return false
+        }
+    }
+    return true
+}
+
 module.exports = {
     sort_csv,
     group,
     arrayOrdered,
     periodicNumber,
-    areaOut
+    areaOut,
+    superPrimeNumber
 }
