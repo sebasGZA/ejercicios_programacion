@@ -35,8 +35,8 @@ class Server {
 
         //EXERCISE 5
         setTimeout(() => {
-            areaOut(0, 0, 10, 10, 20, 20, 30, 30)
-        }, 1000)
+            areaOut(0, 0, 30, 30, 10, 10, 20, 20)
+        }, 1500)
 
     }
 

@@ -118,26 +118,27 @@ const periodicNumber = (number) => {
 
 //EXERCISE 5
 const areaOut = (x1, y1, x2, y2, x3, y3, x4, y4) => {
+
+    console.log('========================')
+    console.log('EXERCISE 5')
+    console.log('========================')
     const rect1 = {
         left: x1,
         right: x2,
         top: y1,
-        bottom: y2
+        bottom: y2,
     }
     const rect2 = {
         left: x3,
         right: x4,
         top: y3,
-        bottom: y4
+        bottom: y4,
     }
 
-    const x_overlap = Math.max(0, Math.min(rect1.right, rect2.right) - Math.max(rect1.left, rect2.left));
-    const y_overlap = Math.max(0, Math.min(rect1.bottom, rect2.bottom) - Math.max(rect1.top, rect2.top));
-    const overlapArea = x_overlap * y_overlap;
+    x_overlap = Math.max(0, Math.min(rect1.right, rect2.right) - Math.max(rect1.left, rect2.left));
+    y_overlap = Math.max(10, Math.min(rect1.bottom, rect2.bottom) - Math.max(rect1.top, rect2.top));
+    overlapArea = x_overlap * y_overlap;
 
-    console.log('========================')
-    console.log('EXERCISE 5')
-    console.log('========================')
     console.table({
         x_overlap,
         y_overlap,
