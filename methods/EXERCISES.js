@@ -78,12 +78,49 @@ const arrayOrdered = (arrData) => {
 }
 
 //EXERCISE 4
+const periodicNumber = (number) => {
+    let init = number
+    let periodic = false
+    let infoPeriodic
+    console.log('========================')
+    console.log('EXERCISE4')
+    console.log('========================')
+    do {
+        let binary = number.toString(2)
+        console.log(number, 'in binary: ', binary)
 
+        for (let j = 1; j <= binary.length; j++) {
+
+            const subs = binary.substring(0, j)
+            const arr = binary.split(subs)
+            let newString = ''
+            arr.forEach(a => {
+                newString = newString + a
+            })
+            if (newString == '' && (arr.length - 1) > 1) {
+                periodic = true
+                infoPeriodic = {
+                    init,
+                    times: arr.length - 1,
+                    periodic,
+                    number,
+                    subs
+                }
+                console.log(number, 'is periodic')
+                break
+            }
+        }
+        number = number + 1
+    } while (!periodic)
+
+    console.log(infoPeriodic)
+}
 
 
 module.exports = {
     sort_csv,
     group,
-    arrayOrdered
+    arrayOrdered,
+    periodicNumber
 
 }

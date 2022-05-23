@@ -1,5 +1,5 @@
 const express = require('express')
-const { sort_csv, group, arrayOrdered } = require('../methods/EXERCISES')
+const { sort_csv, group, arrayOrdered, periodicNumber } = require('../methods/EXERCISES')
 class Server {
 
     constructor() {
@@ -22,6 +22,12 @@ class Server {
             arrayOrdered(infoIn)
         }, 1000)
 
+        //EXERCISE 4
+        setTimeout(() => {
+            const input = 680
+            periodicNumber(input)
+        }, 1000)
+
     }
 
     listen() {
@@ -29,8 +35,6 @@ class Server {
             console.log(`Server listening on port ${this.port}`)
         })
     }
-
-
 
 }
 
