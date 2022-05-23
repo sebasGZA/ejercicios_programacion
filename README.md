@@ -1,4 +1,5 @@
 # NODE.JS USING EXPRESS
+npm install
 
 ## Start App
 npm run start
